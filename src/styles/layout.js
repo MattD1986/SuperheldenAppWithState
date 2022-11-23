@@ -1,0 +1,11 @@
+export default{
+    COLOR_BACKGROUND_PICTURE: 'black',
+    CREATE_ROW: 'row',
+    POWERSTATS_INTELLIGENCE: 'red',
+    POWERSTATS_STRENGTH: 'brown',
+    POWERSTATS_SPEED: 'green',
+    POWERSTATS_DURABILITY: 'purple',
+    POWERSTATS_POWER: 'blue',
+    POWERSTATS_COMBAT: 'orange',
+    PLACEHOLDER_COLOR: '#A2C9E7'
+}
