@@ -8,7 +8,6 @@ import React, {
   
   const initialToast = {
     message: '',
-    //type: null,
     visible: false,
   };
   
@@ -48,3 +47,6 @@ import React, {
       </ToastContext.Provider>
     );
   };
+
+
+  //source: https://github.com/Selleo/ReactNativeSimpleToastExample
