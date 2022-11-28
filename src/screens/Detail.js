@@ -71,7 +71,7 @@ const Detail = ({route, navigation}) => {
                 />
                 <Text>
                     {savedHero}
-    </Text>*/}
+                </Text>*/}
                 <View>
                     <View style={appearanceContainer} >
                         <Text style={[appearanceStyle, {color: colors.text}]}>Appearance </Text>

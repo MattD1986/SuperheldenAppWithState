@@ -12,13 +12,11 @@ import { ToastContext } from "../utils/ToastContext";
 const Settings = () =>{
 
     const [belovedHero, setBelovedHero] = useState('');
-
     const {show} = useContext(ToastContext)
     
     
     const storeData = async (value) => {
         try{
-            // als value een String is:
             await AsyncStorage.setItem('@storage_Key', value)
                 
         } catch (err){
