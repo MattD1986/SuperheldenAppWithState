@@ -1,4 +1,4 @@
-export default{
+export default {
     COLOR_BACKGROUND_PICTURE: 'black',
     CREATE_ROW: 'row',
     POWERSTATS_INTELLIGENCE: 'red',

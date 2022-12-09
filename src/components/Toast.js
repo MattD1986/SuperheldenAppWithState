@@ -1,9 +1,9 @@
-import React, {useContext, useEffect, useRef} from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { ToastContext } from '../utils/ToastContext';
-import { Text, Animated,  Easing,  TouchableOpacity,  StyleSheet} from 'react-native';
+import { Text, Animated, Easing, TouchableOpacity, StyleSheet } from 'react-native';
 
 export const Toast = () => {
-  const {toast, hide} = useContext(ToastContext);
+  const { toast, hide } = useContext(ToastContext);
   const translateYRef = useRef(new Animated.Value(-100));
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export const Toast = () => {
     <Animated.View
       style={[
         styles.toast,
-        {transform: [{translateY: translateYRef.current}]},
+        { transform: [{ translateY: translateYRef.current }] },
       ]}>
       <TouchableOpacity onPress={hide} style={styles.content}>
         <Text style={styles.toastMessage}> {toast.message}</Text>

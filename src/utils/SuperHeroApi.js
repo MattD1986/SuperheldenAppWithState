@@ -1,4 +1,4 @@
-const getUrlForSearchOnSuperheroName = value =>{
+const getUrlForSearchOnSuperheroName = value => {
     const data = {
         //api_key: '10228487874639866',
         heroName: value
@@ -8,7 +8,7 @@ const getUrlForSearchOnSuperheroName = value =>{
         .map(key => `search/${encodeURIComponent(data[key])}`)
         .join('/');
 
-        return `https://superheroapi.com/api.php/10228487874639866/${querystring}`
+    return `https://superheroapi.com/api.php/10228487874639866/${querystring}`
 };
 
 

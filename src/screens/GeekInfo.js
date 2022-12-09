@@ -1,83 +1,80 @@
 import React from "react";
-import {View, Text, StyleSheet, ScrollView, ImageBackground, Dimensions} from "react-native";
+import { View, Text, StyleSheet, ScrollView, ImageBackground, Dimensions } from "react-native";
 import Aliases from "../components/Aliases"
-import {RelativesInfoList, AffiliationInfoList } from "../components/GeekInfoLists";
+import { RelativesInfoList, AffiliationInfoList } from "../components/GeekInfoLists";
 import { useTheme } from "@react-navigation/native";
 import layout from "../styles/layout";
 
-const GeekInfo = ({ route}) => {
+const GeekInfo = ({ route }) => {
 
     const { results } = route.params
-
-    const {colors} = useTheme()
-
+    const { colors } = useTheme()
     const { name } = results
-    const { aliases, ['first-appearance']: firstAppearance } = results.biography 
+    const { aliases, ['first-appearance']: firstAppearance } = results.biography
     const { relatives, ['group-affiliation']: affiliation } = results.connections
-    const { intelligence, strength, speed, durability, power, combat} = results.powerstats
+    const { intelligence, strength, speed, durability, power, combat } = results.powerstats
     const { url: imageUrl } = results.image
 
-    const { 
-        container, 
-        heroName, 
-        leftColumn, 
-        rightColumn, 
-        paddingText, 
-        powerstatsContainer, 
-        title, 
-        borderBottom, 
-        borderTop} = styles    
-        
-    return(
+    const {
+        container,
+        heroName,
+        leftColumn,
+        rightColumn,
+        paddingText,
+        powerstatsContainer,
+        title,
+        borderBottom,
+        borderTop } = styles
+
+    return (
         <ScrollView style={container} >
-                <ImageBackground source={{ uri: imageUrl }} imageStyle={{opacity: 0.1}}>
+            <ImageBackground source={{ uri: imageUrl }} imageStyle={{ opacity: 0.1 }}>
                 <View>
-                    <Text style={[heroName, {color: colors.text}]}> { name } </Text>
-                <Aliases>{aliases}</Aliases>
+                    <Text style={[heroName, { color: colors.text }]}> {name} </Text>
+                    <Aliases>{aliases}</Aliases>
                 </View>
-                <View style={[{flexDirection: layout.CREATE_ROW},{marginTop: 20}]} >
-                    <Text style={[leftColumn, paddingText, {color: colors.text}]}>first appearance</Text>
-                    <Text style={[rightColumn, paddingText, {color: colors.text}]}>{firstAppearance}</Text>
+                <View style={[{ flexDirection: layout.CREATE_ROW }, { marginTop: 20 }]} >
+                    <Text style={[leftColumn, paddingText, { color: colors.text }]}>first appearance</Text>
+                    <Text style={[rightColumn, paddingText, { color: colors.text }]}>{firstAppearance}</Text>
                 </View>
-                <View style={{marginTop: 20}}>
-                    <Text style={[paddingText,{fontWeight: 'bold'}, {color: colors.text}]}>
+                <View style={{ marginTop: 20 }}>
+                    <Text style={[paddingText, { fontWeight: 'bold' }, { color: colors.text }]}>
                         relatives
                     </Text>
                     <RelativesInfoList>{relatives}</RelativesInfoList>
                 </View>
-                <View style={{marginTop: 20}}>
-                    <Text style={[paddingText,{fontWeight: 'bold'},{color: colors.text}]}>
+                <View style={{ marginTop: 20 }}>
+                    <Text style={[paddingText, { fontWeight: 'bold' }, { color: colors.text }]}>
                         affiliated to
                     </Text>
                     <AffiliationInfoList>{affiliation}</AffiliationInfoList>
                 </View>
-               
+
                 <View style={powerstatsContainer}>
-                    <Text style={[title,{color: colors.text}]}>Powerstats</Text>
-                    <View style={[{flexDirection: layout.CREATE_ROW}, {marginHorizontal: 10}]}>
-                        <Text style={[borderTop, {color: layout.POWERSTATS_INTELLIGENCE, borderColor: colors.border}]}>intelligence</Text>
-                        <Text style={[borderTop, {color: layout.POWERSTATS_STRENGTH, borderColor: colors.border}]}>strength</Text>
-                        <Text style={[borderTop, {color: layout.POWERSTATS_SPEED, borderColor: colors.border}]}>speed</Text>
+                    <Text style={[title, { color: colors.text }]}>Powerstats</Text>
+                    <View style={[{ flexDirection: layout.CREATE_ROW }, { marginHorizontal: 10 }]}>
+                        <Text style={[borderTop, { color: layout.POWERSTATS_INTELLIGENCE, borderColor: colors.border }]}>intelligence</Text>
+                        <Text style={[borderTop, { color: layout.POWERSTATS_STRENGTH, borderColor: colors.border }]}>strength</Text>
+                        <Text style={[borderTop, { color: layout.POWERSTATS_SPEED, borderColor: colors.border }]}>speed</Text>
                     </View>
-                    <View style={[{flexDirection: layout.CREATE_ROW}, {marginHorizontal: 10}]}>
-                        <Text style={[borderBottom, {color: layout.POWERSTATS_INTELLIGENCE, borderColor: colors.border}]}>{intelligence}</Text>
-                        <Text style={[borderBottom, {color: layout.POWERSTATS_STRENGTH, borderColor: colors.border}]}>{strength}</Text>
-                        <Text style={[borderBottom,  {color: layout.POWERSTATS_SPEED, borderColor: colors.border}]}>{speed}</Text>
+                    <View style={[{ flexDirection: layout.CREATE_ROW }, { marginHorizontal: 10 }]}>
+                        <Text style={[borderBottom, { color: layout.POWERSTATS_INTELLIGENCE, borderColor: colors.border }]}>{intelligence}</Text>
+                        <Text style={[borderBottom, { color: layout.POWERSTATS_STRENGTH, borderColor: colors.border }]}>{strength}</Text>
+                        <Text style={[borderBottom, { color: layout.POWERSTATS_SPEED, borderColor: colors.border }]}>{speed}</Text>
                     </View>
-                    <View style={[{flexDirection: layout.CREATE_ROW}, {marginHorizontal: 10},{marginTop: 5}]}>
-                        <Text style={[borderTop,  {color: layout.POWERSTATS_DURABILITY, borderColor: colors.border}]}>durability</Text>
-                        <Text style={[borderTop,  {color: layout.POWERSTATS_POWER, borderColor: colors.border}]}>power</Text>
-                        <Text style={[borderTop,  {color: layout.POWERSTATS_COMBAT, borderColor: colors.border}]}>combat</Text>
+                    <View style={[{ flexDirection: layout.CREATE_ROW }, { marginHorizontal: 10 }, { marginTop: 5 }]}>
+                        <Text style={[borderTop, { color: layout.POWERSTATS_DURABILITY, borderColor: colors.border }]}>durability</Text>
+                        <Text style={[borderTop, { color: layout.POWERSTATS_POWER, borderColor: colors.border }]}>power</Text>
+                        <Text style={[borderTop, { color: layout.POWERSTATS_COMBAT, borderColor: colors.border }]}>combat</Text>
                     </View>
-                    <View style={[{flexDirection: layout.CREATE_ROW}, {marginHorizontal: 10}]}>
-                        <Text style={[borderBottom, {color: layout.POWERSTATS_DURABILITY, borderColor: colors.border}]}>{durability}</Text>
-                        <Text style={[borderBottom, {color: layout.POWERSTATS_POWER, borderColor: colors.border}]}>{power}</Text>
-                        <Text style={[borderBottom, {color: layout.POWERSTATS_COMBAT, borderColor: colors.border}]}>{combat}</Text>
+                    <View style={[{ flexDirection: layout.CREATE_ROW }, { marginHorizontal: 10 }]}>
+                        <Text style={[borderBottom, { color: layout.POWERSTATS_DURABILITY, borderColor: colors.border }]}>{durability}</Text>
+                        <Text style={[borderBottom, { color: layout.POWERSTATS_POWER, borderColor: colors.border }]}>{power}</Text>
+                        <Text style={[borderBottom, { color: layout.POWERSTATS_COMBAT, borderColor: colors.border }]}>{combat}</Text>
                     </View>
                 </View>
-
-                </ImageBackground>
-            </ScrollView>
+            </ImageBackground>
+        </ScrollView>
     )
 }
 
@@ -100,7 +97,7 @@ const styles = StyleSheet.create({
         flex: 2,
         paddingRight: 10
     },
-    paddingText:{
+    paddingText: {
         paddingLeft: 20
     },
     powerstatsContainer: {
@@ -108,27 +105,26 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         marginBottom: 40
     },
-    title:{
+    title: {
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 10
     },
-    borderBottom:{
+    borderBottom: {
         borderWidth: 1,
         borderTopWidth: 0,
         textAlign: 'center',
         flex: 1
     },
-    borderTop:{
+    borderTop: {
         borderWidth: 1,
         borderBottomWidth: 0,
         textAlign: 'center',
         flex: 1
     },
-    relative:{
+    relative: {
         paddingLeft: 30
     },
 })
-
 
 export default GeekInfo
